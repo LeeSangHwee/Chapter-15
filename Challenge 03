@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+void Calcul(int Arr[], int len);
+
+void main()
+{
+	int Arr[10];
+
+	printf("총 10개의 숫자 입력\r\n");
+	
+	for (int i = 0; i <= 9; ++i)
+		printf("입력%i : ", i + 1), scanf("%i", &Arr[i]);
+	
+	printf("배열 요소의 출력 : "), Calcul(Arr, sizeof(Arr) / sizeof(int) );
+}
+
+void Calcul(int Arr[], int len)
+{
+	int Arr2[10];
+
+	for (int icount = 0, AddCount = 0, MinusCount = 9; icount < len; ++icount)
+	{
+		if ((*(Arr + icount) % 2) == 1)
+			Arr2[AddCount] = *(Arr + icount), AddCount++;
+
+		else if ((*(Arr + icount) % 2) == 0)
+			Arr2[MinusCount] = *(Arr + icount), MinusCount--;
+	}
+
+	for (int inum = 0; inum < len; ++inum)
+		printf("%i ", Arr2[inum]);
+
+	printf("\r\n");
+}
