@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void OddNum(int arr[], int len);
+void EvenNum(int arr[], int len);
+
+void main()
+{
+	int arr[10];
+
+	printf("총 10개의 숫자 입력\r\n");
+	
+	for (int i = 0; i <= 9; ++i)
+		printf("입력%i : ", i + 1), scanf_s("%i", &arr[i]), printf("\r");
+
+	OddNum(arr, sizeof(arr) / sizeof(int));
+	EvenNum(arr, sizeof(arr) / sizeof(int));
+}
+
+void OddNum(int arr[], int len)
+{
+	printf("홀수 출력 : ");
+
+	for (int i = 0; i < len; ++i)
+	{
+		if (*(arr + i) % 2 != 0)
+			printf("%i ", *(arr + i));
+	}
+
+	printf("\r\n");
+}
+
+void EvenNum(int arr[], int len)
+{
+	printf("짝수 출력 : ");
+
+	for (int i = 0; i < len; ++i)
+	{
+		if (*(arr + i) % 2 == 0)
+			printf("%i ", *(arr + i));
+	}
+
+	printf("\r\n");
+}
