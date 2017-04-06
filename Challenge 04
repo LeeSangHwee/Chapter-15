@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int CalCul(char StrArr[], int j);
+
+void main()
+{
+	char StrArr[50];
+	int i = 0, j;
+
+	printf("문자열 입력 : "), scanf("%s", StrArr), printf("\r\n");
+
+	while (StrArr[i] != 0)
+		j = i, i++;
+
+	CalCul(StrArr, j);
+
+	printf("\r\n");
+}
+
+int CalCul(char StrArr[], int j)
+{
+	for (int i = 0; i <= j; i++, j--)
+	{
+		if (StrArr[i] == StrArr[j])
+		{
+			if (i == j)
+				printf("회문 입니다.\r\n");
+
+			continue;
+		}
+
+		else if (StrArr[i] != StrArr[j])
+		{
+			printf("회문이 아닙니다.\r\n");
+			break;
+		}
+	}
+
+	return *StrArr;
+}
